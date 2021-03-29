@@ -7,4 +7,10 @@
 
 import Foundation
 
-class Image: Codable {}
+struct Image: Codable {
+    let id: String
+    let title: String?
+    let description: String?
+    let type: String
+    let link: String
+}

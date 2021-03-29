@@ -17,6 +17,9 @@
 		271FFC9626117C78008FA27D /* AdConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271FFC9526117C78008FA27D /* AdConfig.swift */; };
 		271FFC9C26117D92008FA27D /* TopicId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271FFC9B26117D92008FA27D /* TopicId.swift */; };
 		271FFCA126117E0D008FA27D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271FFCA026117E0D008FA27D /* Constants.swift */; };
+		2733AD3126126AB20040D38A /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2733AD3026126AB20040D38A /* AppError.swift */; };
+		2741502126123CA600DBB84E /* GalleryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2741502026123CA600DBB84E /* GalleryService.swift */; };
+		2785DE46261250B9005A98F9 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2785DE45261250B9005A98F9 /* ImageCollectionViewCell.swift */; };
 		27A6A3C82611532E001B2FF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6A3C72611532E001B2FF6 /* AppDelegate.swift */; };
 		27A6A3CA2611532E001B2FF6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6A3C92611532E001B2FF6 /* SceneDelegate.swift */; };
 		27A6A3CC2611532E001B2FF6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6A3CB2611532E001B2FF6 /* ViewController.swift */; };
@@ -36,6 +39,9 @@
 		271FFC9526117C78008FA27D /* AdConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdConfig.swift; sourceTree = "<group>"; };
 		271FFC9B26117D92008FA27D /* TopicId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicId.swift; sourceTree = "<group>"; };
 		271FFCA026117E0D008FA27D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		2733AD3026126AB20040D38A /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		2741502026123CA600DBB84E /* GalleryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryService.swift; sourceTree = "<group>"; };
+		2785DE45261250B9005A98F9 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		27A6A3C42611532E001B2FF6 /* CatPictures.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatPictures.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27A6A3C72611532E001B2FF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27A6A3C92611532E001B2FF6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,8 +82,36 @@
 			isa = PBXGroup;
 			children = (
 				271FFCA026117E0D008FA27D /* Constants.swift */,
+				2733AD3026126AB20040D38A /* AppError.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		2741501B26123BFF00DBB84E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				27A6A3D22611532F001B2FF6 /* LaunchScreen.storyboard */,
+				27A6A3CD2611532E001B2FF6 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2741501D26123C3300DBB84E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				27A6A3CB2611532E001B2FF6 /* ViewController.swift */,
+				2785DE45261250B9005A98F9 /* ImageCollectionViewCell.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2741501F26123C6D00DBB84E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				271FFC63261167F1008FA27D /* API.swift */,
+				2741502026123CA600DBB84E /* GalleryService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		27A6A3BB2611532E001B2FF6 = {
@@ -99,16 +133,15 @@
 		27A6A3C62611532E001B2FF6 /* CatPictures */ = {
 			isa = PBXGroup;
 			children = (
+				2741501F26123C6D00DBB84E /* Services */,
 				271FFC9F26117DFF008FA27D /* Utils */,
 				271FFC8826117B76008FA27D /* Models */,
 				27A6A3C72611532E001B2FF6 /* AppDelegate.swift */,
 				27A6A3C92611532E001B2FF6 /* SceneDelegate.swift */,
-				27A6A3CB2611532E001B2FF6 /* ViewController.swift */,
-				27A6A3CD2611532E001B2FF6 /* Main.storyboard */,
+				2741501D26123C3300DBB84E /* Controllers */,
+				2741501B26123BFF00DBB84E /* Views */,
 				27A6A3D02611532F001B2FF6 /* Assets.xcassets */,
-				27A6A3D22611532F001B2FF6 /* LaunchScreen.storyboard */,
 				27A6A3D52611532F001B2FF6 /* Info.plist */,
-				271FFC63261167F1008FA27D /* API.swift */,
 			);
 			path = CatPictures;
 			sourceTree = "<group>";
@@ -187,12 +220,15 @@
 				271FFC6F26117192008FA27D /* Request.swift in Sources */,
 				271FFC9626117C78008FA27D /* AdConfig.swift in Sources */,
 				27A6A3CC2611532E001B2FF6 /* ViewController.swift in Sources */,
+				2733AD3126126AB20040D38A /* AppError.swift in Sources */,
 				271FFC8A26117BD2008FA27D /* Vote.swift in Sources */,
 				27A6A3C82611532E001B2FF6 /* AppDelegate.swift in Sources */,
+				2785DE46261250B9005A98F9 /* ImageCollectionViewCell.swift in Sources */,
 				271FFC8D26117BF5008FA27D /* Topic.swift in Sources */,
 				271FFCA126117E0D008FA27D /* Constants.swift in Sources */,
 				271FFC9026117C3B008FA27D /* Tag.swift in Sources */,
 				271FFC9C26117D92008FA27D /* TopicId.swift in Sources */,
+				2741502126123CA600DBB84E /* GalleryService.swift in Sources */,
 				271FFC64261167F1008FA27D /* API.swift in Sources */,
 				27A6A3CA2611532E001B2FF6 /* SceneDelegate.swift in Sources */,
 				271FFC9326117C5A008FA27D /* Image.swift in Sources */,
