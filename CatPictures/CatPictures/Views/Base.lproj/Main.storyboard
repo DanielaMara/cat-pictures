@@ -20,7 +20,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="loi-V2-NeM">
                                 <rect key="frame" x="20" y="70" width="374" height="796"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" sectionInsetReference="safeArea" id="XU6-SG-JfD">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="5" sectionInsetReference="safeArea" id="XU6-SG-JfD">
                                     <size key="itemSize" width="250" height="250"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -35,7 +35,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4nm-PQ-81O">
-                                                    <rect key="frame" x="2" y="2" width="246" height="246"/>
+                                                    <rect key="frame" x="3" y="3" width="244" height="244"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="txj-3X-XSe">
                                                     <rect key="frame" x="2" y="2" width="246" height="246"/>
@@ -60,21 +65,21 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" red="1" green="0.18858110993888011" blue="0.34887696803355783" alpha="0.82063356164383561" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="1" green="0.74509803921568629" blue="0.99607843137254903" alpha="0.5076519691780822" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="txj-3X-XSe" firstAttribute="leading" secondItem="sSg-9s-h6L" secondAttribute="leading" constant="2" id="07f-Fp-fWk"/>
                                                 <constraint firstAttribute="trailing" secondItem="txj-3X-XSe" secondAttribute="trailing" constant="2" id="264-N7-XtC"/>
                                                 <constraint firstAttribute="bottom" secondItem="txj-3X-XSe" secondAttribute="bottom" constant="2" id="7Qr-xw-PLX"/>
                                                 <constraint firstItem="txj-3X-XSe" firstAttribute="leading" secondItem="sSg-9s-h6L" secondAttribute="leading" constant="2" id="8tr-00-Bzh"/>
-                                                <constraint firstAttribute="bottom" secondItem="4nm-PQ-81O" secondAttribute="bottom" constant="2" id="AJ1-3T-5Mu"/>
+                                                <constraint firstAttribute="bottom" secondItem="4nm-PQ-81O" secondAttribute="bottom" constant="3" id="AJ1-3T-5Mu"/>
                                                 <constraint firstItem="txj-3X-XSe" firstAttribute="top" secondItem="sSg-9s-h6L" secondAttribute="top" constant="2" id="UKz-5r-ZIs"/>
-                                                <constraint firstAttribute="trailing" secondItem="4nm-PQ-81O" secondAttribute="trailing" constant="2" id="gEo-Q0-ba4"/>
-                                                <constraint firstItem="4nm-PQ-81O" firstAttribute="top" secondItem="sSg-9s-h6L" secondAttribute="top" constant="2" id="vCB-OH-fRn"/>
-                                                <constraint firstItem="4nm-PQ-81O" firstAttribute="leading" secondItem="sSg-9s-h6L" secondAttribute="leading" constant="2" id="vP0-YS-NpU"/>
+                                                <constraint firstAttribute="trailing" secondItem="4nm-PQ-81O" secondAttribute="trailing" constant="3" id="gEo-Q0-ba4"/>
+                                                <constraint firstItem="4nm-PQ-81O" firstAttribute="top" secondItem="sSg-9s-h6L" secondAttribute="top" constant="3" id="vCB-OH-fRn"/>
+                                                <constraint firstItem="4nm-PQ-81O" firstAttribute="leading" secondItem="sSg-9s-h6L" secondAttribute="leading" constant="3" id="vP0-YS-NpU"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="5"/>
+                                                    <integer key="value" value="7"/>
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </collectionViewCellContentView>
