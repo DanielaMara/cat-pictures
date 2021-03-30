@@ -22,14 +22,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadCatsImages()
+        self.loadImages()
         
         refreshControl.addTarget(self, action: #selector(refreshData), for: UIControl.Event.valueChanged)
         collectionView.refreshControl = refreshControl
     }
     
-    private func loadCatsImages() {
-        galleryService.loadCatsGallery(page: page) { [weak self] gallery in
+    private func loadImages() {
+        galleryService.loadGallery(query: "cats", page: page) { [weak self] gallery in
             self?.getImagesInGallery(gallery: gallery)
             
             DispatchQueue.main.async {
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
     
     @objc func refreshData() {
         page = 1
-        loadCatsImages()
+        loadImages()
         collectionView.refreshControl?.endRefreshing()
     }
 }
@@ -101,7 +101,7 @@ extension ViewController: UICollectionViewDelegate {
         let lastElementIndex = images.count - 1
         if indexPath.row == lastElementIndex {
             page += 1
-            loadCatsImages()
+            loadImages()
         }
     }
 }

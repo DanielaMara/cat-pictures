@@ -11,8 +11,8 @@ class GalleryService {
     let session = APIManager.session
     private var cacheImages = NSCache<NSString, NSData>()
     
-    func loadCatsGallery(page:Int, onComplete: @escaping ([Gallery]) -> Void, onError: @escaping (AppError) -> Void) {
-        guard let url = URL(string: "\(Constants.BaseURL)gallery/search/\(page)?q=cats") else {
+    func loadGallery(query: String, page:Int, onComplete: @escaping ([Gallery]) -> Void, onError: @escaping (AppError) -> Void) {
+        guard let url = URL(string: "\(Constants.BaseURL)gallery/search/\(page)?q=\(query)") else {
             onError(.url)
             return
         }
@@ -49,17 +49,17 @@ class GalleryService {
           
           let downloadTask = session.downloadTask(with: imageURL) { localUrl, response, error in
             if let error = error {
-              completion(nil, error)
+                completion(nil, AppError.taskError(error: error))
               return
             }
             
             guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
-    //          completion(nil, nil)
+                completion(nil, AppError.noResponse)
               return
             }
             
             guard let localUrl = localUrl else {
-    //          completion(nil, nil)
+                completion(nil, AppError.url)
               return
             }
             
@@ -67,8 +67,8 @@ class GalleryService {
               let data = try Data(contentsOf: localUrl)
               self.cacheImages.setObject(data as NSData, forKey: imageURL.absoluteString as NSString)
               completion(data, nil)
-            } catch let error {
-              completion(nil, error)
+            } catch _ {
+                completion(nil, AppError.noData)
             }
           }
       

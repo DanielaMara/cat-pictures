@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum AppError {
+enum AppError: Error {
     case url
     case taskError(error: Error)
     case noResponse
