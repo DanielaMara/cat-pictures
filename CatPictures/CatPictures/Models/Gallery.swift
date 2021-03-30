@@ -7,9 +7,9 @@
 
 import Foundation
 
-class Gallery: Codable {
-    var id: String = ""
-    var title: String = ""
-    var description: String? = ""
-    var images: [Image]?
+struct Gallery: Codable {
+    let id: String
+    let title: String
+    let description: String?
+    let images: [Image]?
 }

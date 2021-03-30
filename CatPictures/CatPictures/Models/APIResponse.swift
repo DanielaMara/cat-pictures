@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ResponseData: Codable {
+class APIResponse: Codable {
     var data: [Gallery]
     var success: Bool
     var status: Int

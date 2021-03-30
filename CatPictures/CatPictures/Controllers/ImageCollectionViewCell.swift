@@ -8,6 +8,7 @@
 import UIKit
 
 class ImageCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var ivImage: UIImageView!
+    
+    var cellIdentifier: String = ""
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class API {
+class APIManager {
     private static let configuration : URLSessionConfiguration = {
         let config = URLSessionConfiguration.default
         config.httpAdditionalHeaders = ["Authorization": "Client-ID \(Constants.ClientID)"]
