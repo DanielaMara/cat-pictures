@@ -36,7 +36,7 @@ class ViewController: UIViewController {
                 self?.collectionView.reloadData()
             }
         } onError: { error in
-            print(error)
+            self.handleError(error: error)
         }
     }
     
@@ -60,6 +60,40 @@ class ViewController: UIViewController {
         page = 1
         loadImages()
         collectionView.refreshControl?.endRefreshing()
+    }
+    
+    private func handleError(error: AppError) {
+        let title: String = "ERROR_TITLE"
+        var message: String = "GENERAL_ERROR_MESSAGE"
+
+        switch error {
+            case .url:
+                message = "URL_ERROR_MESSAGE"
+                break
+            case .noResponse:
+                message = "NO_RESPONSE_ERROR_MESSAGE"
+                break
+            case .noData:
+                message = "NO_DATA_ERROR_MESSAGE"
+                break
+            case .invalidData:
+                message = "INVALID_DATA_ERROR_MESSAGE"
+                break
+            default:
+                break
+        }
+        showAlert(title: title, message: message)
+    }
+
+    private func showAlert(title: String, message: String) {
+        let titleLocalize = NSLocalizedString(title, comment: "Title Alert")
+        let messageLocalize = NSLocalizedString(message, comment: "Message Alert")
+
+        let alert = UIAlertController(title: titleLocalize, message: messageLocalize, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

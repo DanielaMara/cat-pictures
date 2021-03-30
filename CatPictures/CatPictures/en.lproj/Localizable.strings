@@ -1,1 +1,6 @@
-"HI" = "Hi!!";
+"ERROR_TITLE" = "Oops!";
+"GENERAL_ERROR_MESSAGE" = "I couldn't complete the action. Please, try again in a few minutes.";
+"URL_ERROR_MESSAGE" = "The URL is incorrect. Please, try again in a few minutes.";
+"NO_RESPONSE_ERROR_MESSAGE" = "I was unable to access the server. Please, try again in a few minutes.";
+"NO_DATA_ERROR_MESSAGE" = "I was unable to recover all data. Please, try again in a few minutes.";
+"INVALID_DATA_ERROR_MESSAGE" = "The data received is invalid. Please, try again in a few minutes.";

@@ -1,1 +1,6 @@
-"HI" = "Oieee!!";
+"ERROR_TITLE" = "Opaa!";
+"GENERAL_ERROR_MESSAGE" = "Não consegui completar a ação... Por favor, tente novamente em alguns instantes.";
+"URL_ERROR_MESSAGE" = "A URL está incorreta... Por favor, tente novamente em alguns instantes.";
+"NO_RESPONSE_ERROR_MESSAGE" = "Não consegui acessar o servidor... Por favor, tente novamente em alguns instantes.";
+"NO_DATA_ERROR_MESSAGE" = "Não consegui recuperar todos os dados... Por favor, tente novamente em alguns instantes.";
+"INVALID_DATA_ERROR_MESSAGE" = "Os dados recebidos são inválidos... Por favor, tente novamente em alguns instantes.";
