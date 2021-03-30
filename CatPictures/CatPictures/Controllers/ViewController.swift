@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     let galleryService = GalleryService()
+    let refreshControl = UIRefreshControl()
     
     var images: [Image] = []
     var page = 1
@@ -21,9 +22,16 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadCatsImages()
         
-        galleryService.loadCatsGallery(page: 1) { [weak self] gallery in
+        refreshControl.addTarget(self, action: #selector(refreshData), for: UIControl.Event.valueChanged)
+        collectionView.refreshControl = refreshControl
+    }
+    
+    private func loadCatsImages() {
+        galleryService.loadCatsGallery(page: page) { [weak self] gallery in
             self?.getImagesInGallery(gallery: gallery)
+            
             DispatchQueue.main.async {
                 self?.collectionView.reloadData()
             }
@@ -47,41 +55,55 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    @objc func refreshData() {
+        page = 1
+        loadCatsImages()
+        collectionView.refreshControl?.endRefreshing()
+    }
 }
 
 
 extension ViewController: UICollectionViewDataSource {
-  
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return images.count
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
-    let imageByCell = images[indexPath.item]
-    let representedIdentifier = imageByCell.id
-    
-    cell.ivImage.image = nil
-    cell.cellIdentifier = representedIdentifier
-    
-    func image(data: Data?) -> UIImage? {
-      if let data = data {
-        return UIImage(data: data)
-      }
-      return UIImage(systemName: "picture")
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
     }
-    
-    galleryService.buildImage(image: imageByCell) { data, error  in
-      let img = image(data: data)
-      DispatchQueue.main.async {
-        if (cell.cellIdentifier == representedIdentifier) {
-          cell.ivImage.image = img
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
+        let imageByCell = images[indexPath.item]
+        let representedIdentifier = imageByCell.id
+
+        cell.ivImage.image = nil
+        cell.cellIdentifier = representedIdentifier
+
+        func image(data: Data?) -> UIImage? {
+            if let data = data {
+                return UIImage(data: data)
+            }
+            return UIImage(systemName: "picture")
         }
-      }
+
+        galleryService.buildImage(image: imageByCell) { data, error  in
+            let img = image(data: data)
+            DispatchQueue.main.async {
+                if (cell.cellIdentifier == representedIdentifier) {
+                    cell.ivImage.image = img
+                }
+            }
+        }
+        return cell
     }
-    
-    return cell
-  }
+}
+
+extension ViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let lastElementIndex = images.count - 1
+        if indexPath.row == lastElementIndex {
+            page += 1
+            loadCatsImages()
+        }
+    }
 }
 
 //extension ViewController: UICollectionViewDelegateFlowLayout {
